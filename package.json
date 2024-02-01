@@ -5,20 +5,21 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs --dest zx_docs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "core-js": "^2.6.12",
-    "less": "^3.0.4",
-    "less-loader": "^5.0.0",
+    "dayjs": "^1.9.7",
+    "inquirer": "^7.1.0",
+    "json2yaml": "^1.1.0",
     "vuepress": "^1.9.10",
-    "vuepress-theme-vdoing": "^1.12.9"
-  },
-  "dependencies": {
-    "element-ui": "^2.15.14",
-    "markdown-pdf": "^11.0.0"
+    "vuepress-plugin-demo-block": "^0.7.2",
+    "vuepress-plugin-fulltext-search": "^2.2.1",
+    "vuepress-plugin-one-click-copy": "^1.0.6",
+    "vuepress-plugin-zooming": "^1.1.8",
+    "vuepress-theme-vdoing": "^1.12.9",
+    "yamljs": "^0.3.0"
   }
 }
