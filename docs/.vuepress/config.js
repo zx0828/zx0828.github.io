@@ -20,6 +20,20 @@ module.exports = {
             {
                 text: '前端',
                 link: '/web/'
+            },
+            {
+                text: '后端',
+                link: '/serve/'
+            }, {
+                text: '云技术',
+                link: '/technology/'
+            },
+            {
+                text: '更多',
+                link: '/more/'
+            }, {
+                text: '收藏',
+                link: '/favorite/'
             }],
         bodyBgImg: [
             `/img/a.jpeg`,
