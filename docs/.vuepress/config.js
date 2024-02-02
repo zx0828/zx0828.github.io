@@ -18,7 +18,7 @@ module.exports = {
         nav: [
             { text: '首页', link: '/' },
             {
-                text: '前端',
+                text: '前端验证',
                 link: '/web/'
             },
             {
@@ -33,7 +33,7 @@ module.exports = {
                 link: '/more/'
             }, 
             {
-                text: '其他123',
+                text: '其他',
                 link: '/other/'
             },
             {
