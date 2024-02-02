@@ -23,9 +23,9 @@ npm run build
 
 # 进入生成的文件夹
 cd $dist_path
+git init
 git config user.email "501696487@qq.com"
 git config user.name "zhangxiang"
-git init
 git add -A
 git commit -m "deploy, $commit_info"
 # 输出上传路径
