@@ -15,9 +15,9 @@ npm run build
 # 进入生成的文件夹
 cd $dist_path
 
-git config --global user.email "501696487@qq.com"
-git config --global user.name "zhangxiang"
 git init
+git config user.email "501696487@qq.com"
+git config user.name "zhangxiang"
 git add -A
 git commit -m "deploy, $commit_info"
 git push -f $push_addr HEAD:$push_branch
