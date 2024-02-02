@@ -17,7 +17,7 @@ cd $dist_path
 
 git init
 git config --global user.email "501696487@qq.com"
-git config --global user.name "zx0828"
+git config --global user.name "zhangxiang"
 git add -A
 git commit -m "deploy, $commit_info"
 git push -f $push_addr HEAD:$push_branch
