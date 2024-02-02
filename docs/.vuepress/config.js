@@ -33,7 +33,7 @@ module.exports = {
                 link: '/more/'
             }, 
             {
-                text: '其他',
+                text: '其他123',
                 link: '/other/'
             },
             {
