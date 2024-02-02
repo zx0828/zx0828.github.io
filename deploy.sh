@@ -6,6 +6,8 @@ set -e
 
 #push_addr=`git remote get-url --push origin` # git提交地址，也可以手动设置，比如：push_addr=git@github.com:xugaoyi/vuepress-theme-vdoing.git
 push_addr=`git remote get-url --push origin`
+push_addr=`echo $push_addr | awk -F'://' '{print $2}'`
+push_addr=https://zhangxiang:${GITHUB_TOKEN}@${push_addr}
 commit_info=`git describe --all --always --long`
 dist_path=dist # 打包生成的文件夹路径
 push_branch=trunk # 推送的分支
@@ -22,7 +24,7 @@ git config user.name "zhangxiang"
 git add -A
 git commit -m "deploy, $commit_info"
 echo $push_addr
-git push -f origin HEAD:$push_branch
+git push -f $push_addr HEAD:$push_branch
 
 cd -
 rm -rf $dist_path
