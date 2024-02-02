@@ -18,7 +18,7 @@ module.exports = {
         nav: [
             { text: '首页', link: '/' },
             {
-                text: '前端验证',
+                text: '前端',
                 link: '/web/'
             },
             {
