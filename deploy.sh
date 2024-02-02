@@ -21,6 +21,7 @@ git config user.email "501696487@qq.com"
 git config user.name "zhangxiang"
 git add -A
 git commit -m "deploy, $commit_info"
+echo $push_addr
 git push -f $push_addr HEAD:$push_branch
 
 cd -
