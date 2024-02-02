@@ -3,6 +3,7 @@
 # 确保脚本抛出遇到的错误
 set -e
 
+echo $GITHUB_TOKEN
 #push_addr=`git remote get-url --push origin` # git提交地址，也可以手动设置，比如：push_addr=git@github.com:xugaoyi/vuepress-theme-vdoing.git
 if [ -z "$GITHUB_TOKEN" ]; then
     push_addr=`git remote get-url --push origin`
