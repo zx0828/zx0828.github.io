@@ -31,7 +31,12 @@ module.exports = {
             {
                 text: '更多',
                 link: '/more/'
-            }, {
+            }, 
+            {
+                text: '其他',
+                link: '/other/'
+            },
+            {
                 text: '收藏',
                 link: '/favorite/'
             }],
