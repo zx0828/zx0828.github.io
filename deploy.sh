@@ -22,7 +22,7 @@ git config user.name "zhangxiang"
 git add -A
 git commit -m "deploy, $commit_info"
 echo $push_addr
-git push -f $push_addr HEAD:$push_branch
+git push -f origin HEAD:$push_branch
 
 cd -
 rm -rf $dist_path
