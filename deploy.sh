@@ -23,7 +23,7 @@ npm run build
 # 进入生成的文件夹
 cd $dist_path
 git init
-if [ -z "$GITHUB_TOKEN" ]; then
+if ! [ -z "$GITHUB_TOKEN" ]; then
     git config user.email "501696487@qq.com"
     git config user.name "zhangxiang"
 fi
