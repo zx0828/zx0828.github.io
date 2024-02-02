@@ -12,8 +12,7 @@ set -e
 push_addr=`git remote get-url --push origin`
 push_addr=`echo $push_addr | awk -F'://' '{print $2}'`
 push_addr=https://zhangxiang:${GITHUB_TOKEN}@${push_addr}
-git config user.email "501696487@qq.com"
-git config user.name "zhangxiang"
+
 # fi
 commit_info=`git describe --all --always --long`
 dist_path=dist # 打包生成的文件夹路径
@@ -24,7 +23,8 @@ npm run build
 
 # 进入生成的文件夹
 cd $dist_path
-
+git config user.email "501696487@qq.com"
+git config user.name "zhangxiang"
 git init
 git add -A
 git commit -m "deploy, $commit_info"
