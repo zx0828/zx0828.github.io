@@ -32,6 +32,8 @@ git commit -m "deploy, $commit_info"
 # 输出上传路径
 echo $push_addr
 git push -f $push_addr HEAD:$push_branch
+#输出当前路径下面内容
+ls
 
 cd -
 rm -rf $dist_path
