@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs --dest dist/zx_docs",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs --dest zx_docs",
     "deploy": "bash deploy.sh"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "dayjs": "^1.9.7",
     "inquirer": "^7.1.0",
     "json2yaml": "^1.1.0",

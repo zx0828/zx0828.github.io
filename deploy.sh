@@ -7,7 +7,7 @@ set -e
 if [ -z "$GITHUB_TOKEN" ]; then
     push_addr=`git remote get-url --push origin`
     # 解决node报错
-    export NODE_OPTIONS=--openssl-legacy-provider 
+    # export NODE_OPTIONS=--openssl-legacy-provider 
 else
     push_addr=`git remote get-url --push origin`
     push_addr=`echo $push_addr | awk -F'://' '{print $2}'`

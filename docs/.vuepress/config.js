@@ -41,10 +41,10 @@ module.exports = {
                 link: '/favorite/'
             }],
         bodyBgImg: [
-            `/img/a.jpeg`,
-            `/img/b.jpeg`,
-            `/img/c.jpeg`,
-            `/img/d.jpeg`
+            `/zx_docs/img/a.jpeg`,
+            `/zx_docs/img/b.jpeg`,
+            `/zx_docs/img/c.jpeg`,
+            `/zx_docs/img/d.jpeg`
         ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
         bodyBgImgOpacity: 1, // body背景图透明度，选值 0 ~ 1.0, 默认0.5
     },
