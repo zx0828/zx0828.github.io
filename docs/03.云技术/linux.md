@@ -1,9 +1,0 @@
----
-title: linux
-date: 2024-02-01 18:26:22
-permalink: /pages/2b0e64/
-categories:
-  - 云技术
-tags:
-  - 
----

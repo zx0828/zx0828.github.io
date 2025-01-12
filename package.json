@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs --dest zx_docs",
-    "buildGit": "vuepress build docs --dest dist/zx_docs",
+    "buildGit": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs --dest dist/zx_docs",
     "deploy": "bash deploy.sh"
   },
   "keywords": [],
