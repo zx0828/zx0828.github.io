@@ -7,6 +7,7 @@
     "dev": "vuepress dev docs",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build docs --dest zx_docs",
     "buildGit": "vuepress build docs --dest dist/zx_docs",
+    "editFm": "node utils/editFrontmatter.js",
     "deploy": "bash deploy.sh"
   },
   "keywords": [],
@@ -24,5 +25,9 @@
     "vuepress-plugin-zooming": "^1.1.8",
     "vuepress-theme-vdoing": "^1.12.9",
     "yamljs": "^0.3.0"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "vuepress-starter": "file:"
   }
 }

@@ -16,21 +16,13 @@ function readFileList(dir = docsRoot, filesList = []) {
       if (path.basename(dir) !== 'docs') {
         // 过滤docs目录级下的文件
         const fileNameArr = path.basename(filePath).split('.')
-        let name = null,
-          type = null
-        if (fileNameArr.length === 2) {
-          // 没有序号的文件
-          name = fileNameArr[0]
-          type = fileNameArr[1]
-        } else if (fileNameArr.length === 3) {
-          // 有序号的文件
-          name = fileNameArr[1]
-          type = fileNameArr[2]
-        } else {
-          // 超过两个‘.’的
-          log(chalk.yellow(`warning: 该文件 "${filePath}" 没有按照约定命名，将忽略生成相应数据。`))
-          return
+        
+        if(fileNameArr.length < 2 || fileNameArr.length > 3 ){
+           // 超过两个‘.’的
+           log(chalk.yellow(`warning: 该文件 "${filePath}" 没有按照约定命名，将忽略生成相应数据。`))
+           return
         }
+        let [ name,type ] = fileNameArr.split(".").slice(-2);
         if (type === 'md') {
           // 过滤非md文件
           filesList.push({
