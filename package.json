@@ -27,6 +27,7 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "chalk": "3",
     "gray-matter": "^4.0.3",
     "vuepress-starter": "file:"
   }
