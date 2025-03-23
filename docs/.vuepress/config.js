@@ -110,10 +110,5 @@ module.exports = {
         ], // body背景大图，默认无。 单张图片 String || 多张图片 Array, 多张图片时每隔15秒换一张。
         bodyBgImgOpacity: 1, // body背景图透明度，选值 0 ~ 1.0, 默认0.5
     },
-    markdown: {
-        assets: {
-            absolutePathPrependBase: true, // 自动为 Markdown 图片添加 base 前缀
-        },
-    },
     plugins
 }
