@@ -10801,6 +10801,7 @@ snapshots:
 
   'vuepress-starter@file:':
     dependencies:
+      chalk: 3.0.0
       gray-matter: 4.0.3
 
   vuepress-theme-vdoing@1.12.9:

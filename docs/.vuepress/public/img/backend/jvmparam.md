@@ -1,0 +1,59 @@
+---
+author: 
+  name: zx_0828
+  link: https://github.com/zx_0828
+---
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [执行引擎](#执行引擎)
+- [符合jvm的性能的代码](#符合jvm的性能的代码)
+- [查看代码优化是否使用内联(前提是热点代码)](#查看代码优化是否使用内联前提是热点代码)
+- [逃逸分析，标量替换，栈上分配(前提是热点代码)](#逃逸分析标量替换栈上分配前提是热点代码)
+
+<!-- /code_chunk_output -->
+# 执行引擎
+java文件编译成字节码 ，在通过jvm解释为机器码，
+java的JIT,热点代码，针对重复执行的方法如下,会缓存在一个codecache中
+``` java {.line-numbers}
+public class JITDemo {
+    private  int add(int a,int b){ return a+b;}
+
+    public static void main(String[] args) {
+        int x = 0;
+        JITDemo demo = new JITDemo();
+        long st=System.currentTimeMillis();
+        for(int i = 0 ;i<1000000;i++){
+            x=demo.add(x,i);
+        }
+        long et=System.currentTimeMillis();
+        System.out.println("一共耗时："+(et-st));
+        System.out.println("x="+x);
+    }
+}
+```
+针对for循环语句执行，编译器采用**回边计数器**，统计循环体执行次数，在字节码中遇到控制流向后跳转的指令为回边back edge,默认的阈值是10700，C1-前端优化与C2-后端编译器(C编写)，后续产生了一个graalvm(java编写)
+# 符合jvm的性能的代码
+<mark>方法内联</mark>，把简单方法放到调用出，减少栈帧的开销
+程序计数器，**栈帧划分为** $\color{red}{操作数栈，局部变量表，动态链接库，方法出口}$
+
+# 查看代码优化是否使用内联(前提是热点代码)
+>加入 JVM 参数：-XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions 
+-XX:+PrintInlining -XX:+PrintCompilation -XX:+UnlockDiagnosticVMOptions 后可以看到以下的执行日志,发生方法内联的前提是要让这个方法循环足够的次数，成为热点代码
+
+<img :src="$withBase('/img/backend/inline.png')" alt="热点代码内联">
+
+# 逃逸分析，标量替换，栈上分配(前提是热点代码)
+标量替换是把本来要分配到堆上的对象属性拆分到栈上的局部变量表中
+代码是热点代码，同时没有逃逸，那么就可以进行标量替换+栈上分配，默认是开启逃逸分析，如下
+>-Xms10m -Xmx10m -XX:+PrintGC
+<img :src="$withBase('/img/backend/escapeAnalysis.png')" alt="逃逸分析">
+>-Xms10m -Xmx10m -XX:+PrintGC -XX:-DoEscapeAnalysis (关闭逃逸分析) -XX:-EliminateAllocations (关闭标量替换) 两个选一个
+<img :src="$withBase('/img/backend/noescapeAnalysis.png')" alt="关闭逃逸分析">
+
+**通过命令产看JVM参数初始化值** 
+<img :src="$withBase('/img/backend/jvmparam.png')" alt="jvm参数默认值">
+
+<mark>后端优化都是基于热点代码开展的</mark>
